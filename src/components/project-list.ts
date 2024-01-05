@@ -1,8 +1,11 @@
-/// <reference path="base-component.ts"/>
-/// <reference path="../utils/validator.ts" />
-/// <reference path="../models/drag-drop.ts"/>
+import { DragTarget } from '../models/drag-drop.js';
+import { Component } from '../components/base-component.js';
+import { projectState } from '../state/project-state.js';
+import { autobind } from '../decorators/autobind.js';
+import {Project, ProjectStatus } from '../models/project.js'
+import {ProjectItem} from './project-item.js'
 
-namespace App {
+
     export class ProjectList extends Component<HTMLDivElement, HTMLElement> implements DragTarget{
         assignedProjects: Project[];
     
@@ -68,4 +71,3 @@ namespace App {
             this.element.querySelector('h2')!.textContent = this.type.toUpperCase() + ' PROJECTS'
         }
     }
-}
